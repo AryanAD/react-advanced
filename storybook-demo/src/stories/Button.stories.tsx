@@ -1,52 +1,35 @@
-import { FaHome } from "react-icons/fa";
 import Button from "./Button";
 
 export default {
   title: "products/buttons",
   component: Button,
+  argTypes: {
+    bgColor: { control: "color" },
+    size: { control: "select", options: ["small", "medium", "large"] },
+    radius: { control: "number", min: 0, max: 20, step: 1 },
+    fontSize: { control: "text" },
+    textColor: { control: "color" },
+  },
 };
 
 export const Primary = {
   args: {
-    primary: true,
     label: "Button",
-    onClick: () => alert("You Clicked This"),
-    loading: false,
+    bgColor: "blue",
     size: "medium",
-    color: "#007bff",
-    fullWidth: false,
-    icon: <FaHome />,
-    iconPosition: "left",
-    ariaLabel: "primary-button",
+    radius: 4,
+    fontSize: "16px",
+    textColor: "#ffffff",
   },
 };
 
 export const Secondary = {
   args: {
-    primary: false,
     label: "Button",
-    onClick: () => alert("You Clicked This"),
-    loading: false,
+    bgColor: "green",
     size: "medium",
-    color: "green",
-    fullWidth: false,
-    icon: <FaHome />,
-    iconPosition: "left",
-    ariaLabel: "secondary-button",
-  },
-};
-
-export const Danger = {
-  args: {
-    primary: false,
-    label: "Button",
-    onClick: () => alert("You Clicked This"),
-    loading: false,
-    size: "medium",
-    color: "red",
-    fullWidth: false,
-    icon: <FaHome />,
-    iconPosition: "left",
-    ariaLabel: "danger-button",
+    radius: 4,
+    fontSize: "16px",
+    textColor: "#ffffff",
   },
 };

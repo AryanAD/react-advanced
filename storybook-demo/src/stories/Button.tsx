@@ -1,55 +1,37 @@
-import { ReactNode } from "react";
-import "./style.css";
-
-type ButtonProps = {
+type ButtonTypes = {
   label: string;
-  onClick: () => void;
-  primary?: boolean;
-  loading?: boolean;
-  size?: "small" | "medium" | "large";
-  color?: string;
-  fullWidth?: boolean;
-  icon?: ReactNode;
-  iconPosition?: "left" | "right";
-  ariaLabel?: string;
+  bgColor: string;
+  size: "small" | "medium" | "large";
+  radius: number;
+  fontSize: string;
+  textColor: string;
 };
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   label,
-  loading,
+  bgColor,
   size,
-  color,
-  fullWidth = false,
-  icon,
-  iconPosition,
-  ariaLabel,
-  primary = false,
-  onClick,
-}) => {
-  const buttonClass = `
-  button
-  ${primary ? "button--primary" : "button--secondary"}
-  ${size ? `button-${size}` : "button--medium"}
-  ${color ? `button--custom-color` : ""}
-  ${fullWidth ? `button-fullWidth` : ""}
-  ${loading ? `button--loading` : ""}
-  `;
-
+  radius,
+  fontSize,
+  textColor,
+}: ButtonTypes) => {
+  const sizeStyles = {
+    small: "5px 10px",
+    medium: "10px 20px",
+    large: "15px 30px",
+  };
   return (
     <button
-      onClick={onClick}
-      className={buttonClass}
-      aria-label={ariaLabel}
-      style={color ? { backgroundColor: color, color: "white" } : {}}
+      style={{
+        backgroundColor: bgColor,
+        padding: sizeStyles[size],
+        borderRadius: `${radius}px`,
+        fontSize: fontSize,
+        color: textColor,
+        cursor: "pointer",
+      }}
     >
-      {loading && <span className="button__loading-spinner">Loading...</span>}
-      {icon && iconPosition === "left" && (
-        <span className="button__icon">{icon}</span>
-      )}
-      <span className="button__label">{label}</span>
-      {icon && iconPosition === "right" && (
-        <span className="button__icon">{icon}</span>
-      )}
+      {label}
     </button>
   );
 };

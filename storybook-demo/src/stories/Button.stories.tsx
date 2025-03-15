@@ -1,3 +1,4 @@
+import { FaHome } from "react-icons/fa";
 import Button from "./Button";
 
 export default {
@@ -5,11 +6,47 @@ export default {
   component: Button,
 };
 
-export const Primary = () => <Button variant="primary">Primary</Button>;
-export const Secondary = () => <Button variant="secondary">Secondary</Button>;
-export const Danger = () => <Button variant="danger">Danger</Button>;
+export const Primary = {
+  args: {
+    primary: true,
+    label: "Button",
+    onClick: () => alert("You Clicked This"),
+    loading: false,
+    size: "medium",
+    color: "#007bff",
+    fullWidth: false,
+    icon: <FaHome />,
+    iconPosition: "left",
+    ariaLabel: "primary-button",
+  },
+};
 
-// Renaming stories
-Primary.storyName = "Blue Button";
-Secondary.storyName = "Green Button";
-Danger.storyName = "Red Button";
+export const Secondary = {
+  args: {
+    primary: false,
+    label: "Button",
+    onClick: () => alert("You Clicked This"),
+    loading: false,
+    size: "medium",
+    color: "green",
+    fullWidth: false,
+    icon: <FaHome />,
+    iconPosition: "left",
+    ariaLabel: "secondary-button",
+  },
+};
+
+export const Danger = {
+  args: {
+    primary: false,
+    label: "Button",
+    onClick: () => alert("You Clicked This"),
+    loading: false,
+    size: "medium",
+    color: "red",
+    fullWidth: false,
+    icon: <FaHome />,
+    iconPosition: "left",
+    ariaLabel: "danger-button",
+  },
+};

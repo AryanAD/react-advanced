@@ -1,35 +1,21 @@
-type ButtonTypes = {
+type ButtonProps = {
   label: string;
-  bgColor: string;
-  size: "small" | "medium" | "large";
-  radius: number;
-  fontSize: string;
-  textColor: string;
+  disabled: boolean;
+  onClick?: () => void;
+  color: string;
 };
 
-const Button = ({
-  label,
-  bgColor,
-  size,
-  radius,
-  fontSize,
-  textColor,
-}: ButtonTypes) => {
-  const sizeStyles = {
-    small: "5px 10px",
-    medium: "10px 20px",
-    large: "15px 30px",
-  };
+const Button = ({ label, disabled, onClick, color }: ButtonProps) => {
   return (
     <button
+      onClick={onClick}
       style={{
-        backgroundColor: bgColor,
-        padding: sizeStyles[size],
-        borderRadius: `${radius}px`,
-        fontSize: fontSize,
-        color: textColor,
-        cursor: "pointer",
+        backgroundColor: color,
+        padding: "10px 20px",
+        border: "none",
+        borderRadius: "40px",
       }}
+      disabled={disabled}
     >
       {label}
     </button>

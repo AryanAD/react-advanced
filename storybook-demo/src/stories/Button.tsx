@@ -1,5 +1,5 @@
-const Button = () => {
-  return <div>Button</div>;
+const Button = (props: any) => {
+  return <button {...props} />;
 };
 
 export default Button;
